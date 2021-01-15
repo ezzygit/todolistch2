@@ -1,23 +1,30 @@
 import React from "react";
 import './App.css';
+import taskComplete from "./TasksComplete"
 
 class App extends React.Component {
 
     state = {
         input: "",
         tasks: [],
+        donetasks:[""],
     }
 
 handleInput = (event) => {
 this.setState({input:event.target.value})
 };
 
-addTasks = () => {
+addTasks = (index) => {
     let newTasks = [...this.state.tasks]
     newTasks.push(this.state.input)
     this.setState({tasks:newTasks,input:""})
+    console.log(index);
 }
 
+
+onClickRemove = (index) => {
+    
+}
 
 
 render () {
@@ -34,6 +41,7 @@ render () {
            <div className="tasks" >{this.state.tasks.map((num,index)=>{
                  return <p className="tasks" key={index}>{num}</p>;})}
            </div>
+           
         </div>
     </div>  
             
